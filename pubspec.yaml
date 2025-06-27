@@ -1,0 +1,30 @@
+name: flutter_assignments
+description: A demo project that showcases a profile card.
+
+# The version can stay as-is – bump it when you’re ready to publish
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # 3rd-party packages you really use
+  provider: ^6.1.2
+
+  # iOS-style icons
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1      # → latest stable lint set
+
+flutter:
+
+  # Because we load an **asset** avatar from disk
+  assets:
+    - assets/images/profile_pic.png
+    - assets/images/profile_picture.png
