@@ -1,114 +1,69 @@
 import 'package:flutter/material.dart';
+import 'assignment1/profile_card_screen.dart';
 import 'assignment2/home_screen.dart';
+import 'assignment3/login_screen.dart';
 
-void main() => runApp(const ProfileCardDemo());
+void main() => runApp(const AssignmentsApp());
 
-/// Root widget that injects [ProfileScreen] and global theme.
-class ProfileCardDemo extends StatelessWidget {
-  const ProfileCardDemo({super.key});
+/// Root app that provides navigation to all assignments.
+class AssignmentsApp extends StatelessWidget {
+  const AssignmentsApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Profile Card Demo',
+      title: 'Flutter Assignments',
       theme: ThemeData(
         colorSchemeSeed: Colors.deepPurple,
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const ProfileScreen(),
+      home: const HomeScreen(),
     );
   }
 }
 
-/// Top-level screen; keeps the card centred.
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(title: const Text('Profile')),
-        body: const Center(
-          child: ProfileCard(
-            name: 'Gaurav Kumar Jha',
-            description:
-                'QA Engineer • Software & Mobile Testing • API & Performance '
-                'Testing (K6) • SDLC | Agile | Jira | eCommerce & Media domains',
-            imagePath: 'assets/images/profile_picture.png',
-          ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (_) => const Assignment2HomeScreen(),
-              ),
-            );
-          },
-          child: const Icon(Icons.navigate_next),
-        ),
-      );
-}
-
-/// Reusable card widget with internal “Follow” state.
-class ProfileCard extends StatefulWidget {
-  const ProfileCard({
-    super.key,
-    required this.name,
-    required this.description,
-    required this.imagePath,
-  });
-
-  final String name;
-  final String description;
-  final String imagePath;
-
-  @override
-  State<ProfileCard> createState() => _ProfileCardState();
-}
-
-class _ProfileCardState extends State<ProfileCard> {
-  bool _isFollowing = false;
-
-  void _toggleFollow() => setState(() => _isFollowing = !_isFollowing);
+/// Main menu screen listing all assignments.
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 3,
-      margin: const EdgeInsets.all(16),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      child: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            CircleAvatar(
-              radius: 48,
-              backgroundImage: AssetImage(widget.imagePath),
-            ),
-            const SizedBox(height: 16),
-            Text(
-              widget.name,
-              style: Theme.of(context)
-                  .textTheme
-                  .titleLarge
-                  ?.copyWith(fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              widget.description,
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.bodyMedium,
-            ),
-            const SizedBox(height: 20),
-            FilledButton(
-              onPressed: _toggleFollow,
-              child: Text(_isFollowing ? 'Following' : 'Follow'),
-            ),
-          ],
-        ),
+    return Scaffold(
+      appBar: AppBar(title: const Text('Flutter Assignments')),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const ProfileCardScreen()),
+              );
+            },
+            child: const Text('Assignment 1 - Profile Card'),
+          ),
+          const SizedBox(height: 12),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const Assignment2HomeScreen()),
+              );
+            },
+            child: const Text('Assignment 2 - Data Passing'),
+          ),
+          const SizedBox(height: 12),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const LoginScreen()),
+              );
+            },
+            child: const Text('Assignment 3 - Login Form'),
+          ),
+        ],
       ),
     );
   }
