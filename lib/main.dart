@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'assignment2/home_screen.dart';
 
 void main() => runApp(const ProfileCardDemo());
 
@@ -35,6 +36,17 @@ class ProfileScreen extends StatelessWidget {
                 'Testing (K6) • SDLC | Agile | Jira | eCommerce & Media domains',
             imagePath: 'assets/images/profile_picture.png',
           ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => const Assignment2HomeScreen(),
+              ),
+            );
+          },
+          child: const Icon(Icons.navigate_next),
         ),
       );
 }
