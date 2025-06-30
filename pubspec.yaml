@@ -13,6 +13,7 @@ dependencies:
 
   # 3rd-party packages you really use
   provider: ^6.1.2
+  http: ^1.1.0
 
   # iOS-style icons
   cupertino_icons: ^1.0.8
