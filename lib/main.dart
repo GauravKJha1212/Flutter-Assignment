@@ -3,6 +3,7 @@ import 'assignment1/profile_card_screen.dart';
 import 'assignment2/home_screen.dart';
 import 'assignment3/login_screen.dart';
 import 'assignment4/todo_list_screen.dart';
+import 'assignment5/user_list_screen.dart';
 
 void main() => runApp(const AssignmentsApp());
 
@@ -73,6 +74,16 @@ class HomeScreen extends StatelessWidget {
               );
             },
             child: const Text('Assignment 4 - To-Do List'),
+          ),
+          const SizedBox(height: 12),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const UserListScreen()),
+              );
+            },
+            child: const Text('Assignment 5 - Users'),
           ),
         ],
       ),
