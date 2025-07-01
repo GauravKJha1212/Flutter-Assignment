@@ -4,6 +4,7 @@ import 'assignment2/home_screen.dart';
 import 'assignment3/login_screen.dart';
 import 'assignment4/todo_list_screen.dart';
 import 'assignment5/user_list_screen.dart';
+import 'assignment6/responsive_grid_screen.dart';
 
 void main() => runApp(const AssignmentsApp());
 
@@ -84,6 +85,16 @@ class HomeScreen extends StatelessWidget {
               );
             },
             child: const Text('Assignment 5 - Users'),
+          ),
+          const SizedBox(height: 12),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const ResponsiveGridScreen()),
+              );
+            },
+            child: const Text('Assignment 6 - Responsive Grid'),
           ),
         ],
       ),
