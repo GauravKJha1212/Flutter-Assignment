@@ -107,6 +107,16 @@ class HomeScreen extends StatelessWidget {
               );
             },
             child: const Text('Assignment 7 - To-Do with Provider'),
+            
+          const SizedBox(height: 12),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const DWLoginScreen()),
+              );
+            },
+            child: const Text('DailyWellness App'),
           ),
         ],
       ),
